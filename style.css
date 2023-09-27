@@ -8,7 +8,6 @@
 
 body {
     background-color: var(--color-bg);
-    border: 10px solid var(--color-accent);
 }
 
 
@@ -63,10 +62,15 @@ body {
 .book {
     background-color: var(--color-book);
     box-shadow: 20px 0px 25px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
 }
 
 .book:not(:first-child) {
     border-left: 5px solid var(--color-black);
+}
+
+.book:last-child {
+    border-right: 10px solid #281601;
 }
 
 .vignette {
