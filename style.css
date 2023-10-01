@@ -103,6 +103,7 @@ body {
     height: 50rem;
     background-color: var(--color-accent);
 
+    border: 5px solid var(--color-black);
     border-radius: 15px;
 
     display: flex;
@@ -125,6 +126,39 @@ body {
     font-family: 'Dancing Script', cursive;    
     font-size: 3rem;
     padding-bottom: 2rem;
+}
+
+.add-book-container > button {
+    border: none;
+    width: 6rem;
+    height: 3rem;
+    background-color: var(--color-bg);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.add-book-container > button:hover {
+    background-color: #2d310f;
+}
+
+.add-book-container > button:active {
+    transform: scale(0.97);
+    background-color: #21240b;
+}
+
+.book {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.book > p {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    font-size: 2rem;
+    text-wrap: wrap;
+    text-align: center;
 }
 
 .show {
