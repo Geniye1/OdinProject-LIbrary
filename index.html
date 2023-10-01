@@ -8,8 +8,34 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="AndyBell_CSSModernReset.css">
     <script src="index.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Slabo+27px&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="add-book-popup">
+        <div class="add-book-container">
+            <h1>New Book:</h1>
+            <div>
+                <input type="text" name="title" id="title" placeholder="Title">
+            </div>
+            <div>
+                <input type="text" name="author" id="author" placeholder="Author">
+            </div>
+            <div>
+                <input type="number" name="page-count" id="page-count" placeholder="# of pages">
+            </div>
+            <!-- <div>
+                <label for="has-read">Have read?</label>
+                <input type="checkbox" name="has-read-checkbox" id="has-read-checkbox">
+            </div> -->
+            <div>
+                <textarea name="review" id="review" cols="30" rows="10" placeholder="Review"></textarea>
+            </div>
+            <button>Add</button>
+        </div>
+    </div>
     <div class="vignette">
         <div class="main-container">
             <div class="button-container">
