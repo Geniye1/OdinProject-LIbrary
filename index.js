@@ -1,3 +1,4 @@
+// BOOK PROTOTYPE
 const BookBase = {
     library: [],
 
@@ -14,12 +15,19 @@ const BookBase = {
         newBookDiv.classList.add("book");
         newBookDiv.setAttribute("data-book-id", this.library.length - 1);
         newBookPTitle.textContent = this.title;
+
+        newBookDiv.addEventListener("click", () => {
+            displayBookInformation(this);
+            
+        })
+
         newBookDiv.appendChild(newBookPTitle);
         bookContainer.appendChild(newBookDiv);
     }
 }
 
-function createNewBook(title, author, pageCount, hasRead, review) {
+// CONSTRUCT BOOK OBJECT FROM PROTOTYPE
+function addNewBook(title, author, pageCount, hasRead, review) {
     var newBook = Object.create(BookBase);
     newBook.title = title;
     newBook.author = author;
@@ -27,13 +35,34 @@ function createNewBook(title, author, pageCount, hasRead, review) {
     newBook.hasRead = hasRead;
     newBook.review = review;
 
-    return newBook;
+    newBook.addToLibrary()
+}
+
+function displayBookInformation(book) {
+    informationPopup.classList.toggle("show");
+    currentPopupShown = informationPopup;
+    
+    const informationContainer = document.querySelector(".information-container");
+    const titleHeading = document.createElement("h1");
+    const authorHeading = document.createElement("h2");
+    const reviewParagraph = document.createElement("p");
+    titleHeading.textContent = book.title;
+    authorHeading.textContent = book.author;
+    reviewParagraph.textContent = book.review;
+
+    informationContainer.appendChild(titleHeading);
+    informationContainer.appendChild(authorHeading);
+    informationContainer.appendChild(reviewParagraph);
 }
 
 const popup = document.querySelector(".add-book-popup");
+const informationPopup = document.querySelector(".information-popup"); 
+var currentPopupShown = null;
+
 const addBookPopupButton = document.querySelector(".button-container");
 addBookPopupButton.addEventListener("click", () => {
     popup.classList.toggle("show");
+    currentPopupShown = popup;
 });
 
 const addBookButton = document.querySelector("#add-book-button");
@@ -46,8 +75,7 @@ addBookButton.addEventListener("click", () => {
     var hasReadIn = document.getElementById("has-read-checkbox");
     var reviewIn = document.getElementById("review");  
     
-    var newBook = createNewBook(titleIn.value, authorIn.value, pageCountIn.value, hasReadIn.value, reviewIn.value);
-    newBook.addToLibrary();
+    var newBook = addNewBook(titleIn.value, authorIn.value, pageCountIn.value, hasReadIn.value, reviewIn.value);
 
     titleIn.value = "";
     authorIn.value = "";
@@ -58,7 +86,11 @@ addBookButton.addEventListener("click", () => {
 
 // Allow the user to press ESC to close the popup window but ONLY if the popup window is open
 document.addEventListener("keydown", (event) => {
-    if (event.key == "Escape" && popup.classList.contains("show")) {
-        popup.classList.toggle("show");
+    if (event.key == "Escape" && currentPopupShown != null) {
+        currentPopupShown.classList.toggle("show");
+        currentPopupShown = null;
     }
 }, false);
+
+/* DEBUG */
+var debugBook = addNewBook("Walden", "Thoreau", 300, false, "Asinine - truly an asinine experience. I hope Thoreau got ticks on his cock for this book.");
