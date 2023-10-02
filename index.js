@@ -41,18 +41,13 @@ function addNewBook(title, author, pageCount, hasRead, review) {
 function displayBookInformation(book) {
     informationPopup.classList.toggle("show");
     currentPopupShown = informationPopup;
-    
-    const informationContainer = document.querySelector(".information-container");
-    const titleHeading = document.createElement("h1");
-    const authorHeading = document.createElement("h2");
-    const reviewParagraph = document.createElement("p");
-    titleHeading.textContent = book.title;
-    authorHeading.textContent = book.author;
-    reviewParagraph.textContent = book.review;
 
-    informationContainer.appendChild(titleHeading);
-    informationContainer.appendChild(authorHeading);
-    informationContainer.appendChild(reviewParagraph);
+    const titleHeading = document.querySelector("#information-title");
+    const authorHeading = document.querySelector("#information-author");
+    const reviewParagraph = document.querySelector("#information-review");
+    titleHeading.textContent = book.title;
+    authorHeading.textContent = `by ${book.author}`;
+    reviewParagraph.textContent = book.review;
 }
 
 const popup = document.querySelector(".add-book-popup");
@@ -93,4 +88,4 @@ document.addEventListener("keydown", (event) => {
 }, false);
 
 /* DEBUG */
-var debugBook = addNewBook("Walden", "Thoreau", 300, false, "Asinine - truly an asinine experience. I hope Thoreau got ticks on his cock for this book.");
+var debugBook = addNewBook("Walden", "Thoreau", 300, false, "Asinine - truly an asinine experience. I hope Thoreau got ticks on his cock for this book. It makes me want to start my own coal mine and double the CO2 output of America purely to spite him.");

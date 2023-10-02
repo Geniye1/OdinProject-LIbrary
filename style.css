@@ -159,8 +159,30 @@ body {
 
 /* INFORMATION CONTAINER */
 .information-container {
-    width: 55%;
-    height: 70%;
+    width: 45%;
+    height: 60%;
+
+    padding: 2rem;
+}
+
+.information-container > h1 {
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+.information-container > h2 {
+    margin-bottom: 2rem;
+}
+
+.information-container > p {
+    font-size: 1.5rem;
+}
+
+.information-container > svg {
+    position: relative;
+    bottom: 25%;
+    left: 51%;
+    width: 2rem;
 }
 
 /* GENERAL CLASSES */
