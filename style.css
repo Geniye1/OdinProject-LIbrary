@@ -13,6 +13,10 @@ body {
     overflow: hidden;
 }
 
+svg {
+    width: 2rem;
+}
+
 /* MAIN CONTAINER */
 .vignette {
     position: fixed;
@@ -45,6 +49,10 @@ body {
     box-shadow: 5px 5px 27px -4px rgba(0, 0, 0, 0.26);
 
     cursor: pointer;
+}
+
+.button-container > svg {
+    width: 7rem !important;
 }
 
 .button-container:hover {
@@ -170,19 +178,32 @@ body {
     text-decoration: underline;
 }
 
-.information-container > h2 {
-    margin-bottom: 2rem;
-}
-
 .information-container > p {
     font-size: 1.5rem;
 }
 
-.information-container > svg {
-    position: relative;
-    bottom: 25%;
-    left: 51%;
-    width: 2rem;
+.book-options-container {
+    display: flex;
+    align-content: center;
+}
+
+.book-options-container > svg {
+    cursor: pointer;
+
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+
+.book-options-container > svg:hover {
+    transform: scale(1.1);
+}
+
+/* CLASSES TO CHANGE COLOR OF HAS READ BUTTON, CONVEYING WHETHER USER HAS READ BOOK OR NOT */
+.hasnt-read {
+    fill: red;
+}
+.has-read {
+    fill: green;
 }
 
 /* GENERAL CLASSES */
